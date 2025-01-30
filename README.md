@@ -1,9 +1,5 @@
 #                                    CSS - **44 Questions**
 ---
-Here are the answers to the CSS questions:
-
----
-
 ### 1. **What is the difference between inline, internal, and external CSS?**  
 **Inline CSS:**  
 - CSS is written directly inside an HTML element using the `style` attribute.  
