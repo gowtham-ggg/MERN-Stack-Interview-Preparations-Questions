@@ -1288,4 +1288,4 @@ app.get('/', (req, res) => {
 It sets the `Content-Type` to `application/json` automatically.
 
 ---
-# HTML-5
+# HTML
