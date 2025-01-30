@@ -924,3 +924,368 @@ p {
 ---
 #                                            ExpressJS
 
+### 45. **What is Express.js?**  
+Express.js is a lightweight and flexible web application framework for Node.js. It simplifies building web applications and APIs by providing robust routing, middleware support, and easy integration with databases. It follows a minimalistic approach and allows developers to create RESTful services efficiently.
+
+---
+
+### 46. **How is routing done in Express.js?**  
+Routing in Express.js determines how an application responds to a client request for a specific URL and HTTP method (GET, POST, PUT, DELETE, etc.).  
+Example:  
+```js
+const express = require('express');
+const app = express();
+
+app.get('/home', (req, res) => {
+  res.send('Welcome to Home Page');
+});
+
+app.post('/submit', (req, res) => {
+  res.send('Data submitted successfully');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+```
+Routes can be modularized using `express.Router()`.
+
+---
+
+### 47. **What is middleware in Express.js?**  
+Middleware functions are functions that execute in the request-response cycle. They can:  
+- Modify request or response objects  
+- Execute code  
+- End the request-response cycle  
+- Call the next middleware function  
+
+Example:  
+```js
+const logger = (req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+};
+app.use(logger);
+```
+Middleware can be **built-in**, **third-party**, or **custom**.
+
+---
+
+### 48. **How can you handle errors in Express.js?**  
+Express provides error-handling middleware that takes four parameters: `(err, req, res, next)`.  
+
+Example:  
+```js
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+```
+You can also use `next(err)` inside a route to pass errors to the error-handling middleware.
+
+---
+
+### 49. **What is the difference between a PUT and a POST request in RESTful APIs?**  
+- **PUT**: Used to update an existing resource or create it if it doesn't exist. It is **idempotent** (same request produces the same result).  
+- **POST**: Used to create a new resource. It is **not idempotent** (multiple requests create multiple records).  
+
+Example:  
+```js
+app.put('/user/:id', (req, res) => { /* Update user */ });
+app.post('/user', (req, res) => { /* Create user */ });
+```
+
+---
+
+### 50. **What is the difference between a GET and a POST request in RESTful APIs?**  
+- **GET**: Used to retrieve data. Parameters are sent in the URL.  
+- **POST**: Used to send data to the server. Parameters are sent in the request body.  
+
+---
+
+### 51. **What is Express?**  
+Express is a fast, unopinionated web framework for Node.js used to build web applications and REST APIs.
+
+---
+
+### 52. **What are the advantages of using Express?**  
+- Minimal and fast  
+- Supports middleware  
+- Robust routing  
+- Easily integrates with databases  
+- Large ecosystem  
+
+---
+
+### 53. **What is middleware in Express?**  
+Middleware is a function that runs before a request reaches the route handler. Examples include logging, authentication, and error handling.
+
+---
+
+### 54. **What is routing in Express?**  
+Routing defines how an application handles incoming requests based on URL and HTTP method.
+
+---
+
+### 55. **What is the difference between res.send() and res.json() in Express?**  
+- `res.send()`: Sends a response (can be a string, object, or buffer).  
+- `res.json()`: Sends a JSON response and sets the `Content-Type` header to `application/json`.
+
+Example:  
+```js
+res.send({ message: "Hello" }); // Works, but not explicit  
+res.json({ message: "Hello" }); // Explicitly sends JSON  
+```
+
+---
+
+### 56. **What is the use of app.use() in Express?**  
+`app.use()` is used to apply middleware globally or to a specific route.
+
+Example:  
+```js
+app.use(express.json()); // Parses JSON request bodies  
+```
+
+---
+
+### 57. **What is the use of app.listen() in Express?**  
+`app.listen()` starts the Express server on a specified port.
+
+Example:  
+```js
+app.listen(3000, () => console.log('Server running on port 3000'));
+```
+
+---
+
+### 58. **What is the purpose of the next() function in Express middleware?**  
+`next()` is used to pass control from one middleware function to the next.
+
+Example:  
+```js
+app.use((req, res, next) => {
+  console.log('Middleware executed');
+  next(); // Moves to next middleware or route handler
+});
+```
+
+---
+
+### 59. **What is the difference between app.use() and app.get() in Express?**  
+- `app.use()`: Applies middleware to all HTTP methods.  
+- `app.get()`: Defines a route handler for GET requests only.  
+
+Example:  
+```js
+app.use('/user', someMiddleware); // Applies to all methods at /user  
+app.get('/user', (req, res) => res.send('User data')); // Only for GET requests  
+```
+
+---
+
+### 60. **What is the purpose of app.listen() in Express?**  
+It starts the HTTP server and listens for incoming requests.
+
+---
+
+### 61. **What is a route handler in Express?**  
+A **route handler** is a function that executes when a specific HTTP request is made to a defined route. It processes requests and sends responses.
+
+Example:  
+```js
+app.get('/home', (req, res) => {
+  res.send('Welcome to the Home Page');
+});
+```
+
+---
+
+### 62. **What is the purpose of the res.send() function in Express?**  
+`res.send()` is used to send a response to the client. It automatically sets the `Content-Type` header based on the response type.
+
+Example:  
+```js
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+```
+
+---
+
+### 63. **How can you serve static files in Express?**  
+You can serve static files (CSS, images, JavaScript) using `express.static()`.
+
+Example:  
+```js
+app.use(express.static('public'));
+```
+If you have a file `public/style.css`, it can be accessed at `http://localhost:3000/style.css`.
+
+---
+
+### 64. **What is the difference between req.query and req.params in Express?**  
+- `req.query`: Retrieves query parameters from the URL (`?key=value`).  
+- `req.params`: Retrieves route parameters from the URL (`/user/:id`).  
+
+Example:  
+```js
+app.get('/user/:id', (req, res) => {
+  console.log(req.params.id); // Route param
+  console.log(req.query.name); // Query param
+});
+```
+For `/user/123?name=John`:  
+- `req.params.id` → `123`  
+- `req.query.name` → `John`  
+
+---
+
+### 65. **What is Express Router?**  
+Express Router is a way to create modular, mountable route handlers.
+
+Example:  
+```js
+const router = express.Router();
+router.get('/home', (req, res) => res.send('Home Page'));
+app.use('/', router);
+```
+
+---
+
+### 66. **What is CORS in Express?**  
+CORS (Cross-Origin Resource Sharing) allows or restricts requests from different origins.
+
+Example:  
+```js
+const cors = require('cors');
+app.use(cors());
+```
+
+---
+
+### 67. **What is the difference between a PUT and a POST request in Express?**  
+- **PUT** updates an existing resource and is **idempotent**.  
+- **POST** creates a new resource and is **not idempotent**.  
+
+Example:  
+```js
+app.put('/user/:id', (req, res) => res.send('User updated'));
+app.post('/user', (req, res) => res.send('User created'));
+```
+
+---
+
+### 68. **What is the difference between REST and SOAP?**  
+- **REST**: Uses JSON/XML, lightweight, stateless, widely used.  
+- **SOAP**: Uses XML, more complex, supports strict security and transactions.  
+
+---
+
+### 69. **What is JWT authentication in Express?**  
+JWT (JSON Web Token) is used for secure authentication.
+
+Example:  
+```js
+const jwt = require('jsonwebtoken');
+const token = jwt.sign({ userId: 123 }, 'secretKey', { expiresIn: '1h' });
+```
+
+---
+
+### 70. **What is the difference between synchronous and asynchronous code in Express?**  
+- **Synchronous**: Blocks execution until the operation completes.  
+- **Asynchronous**: Uses callbacks/promises to avoid blocking.  
+
+Example:  
+```js
+// Synchronous
+const data = fs.readFileSync('file.txt', 'utf-8');
+
+// Asynchronous
+fs.readFile('file.txt', 'utf-8', (err, data) => console.log(data));
+```
+
+---
+
+### 71. **What is Express generator?**  
+Express generator is a CLI tool for quickly setting up Express applications.
+
+Install and use:  
+```sh
+npm install -g express-generator
+express myapp
+cd myapp && npm install
+```
+
+---
+
+### 72. **What is error handling in Express?**  
+Error handling middleware handles errors in Express applications.
+
+Example:  
+```js
+app.use((err, req, res, next) => {
+  res.status(500).json({ error: err.message });
+});
+```
+
+---
+
+### 73. **What is the difference between app.use() and app.all() in Express middleware?**  
+- `app.use()`: Applies middleware to all routes.  
+- `app.all()`: Executes for all HTTP methods on a specific route.  
+
+Example:  
+```js
+app.use('/user', someMiddleware); // Applies to all methods at /user  
+app.all('/test', (req, res) => res.send('Runs for any HTTP method'));
+```
+
+---
+
+### 74. **What is Express-session?**  
+`express-session` is used to manage sessions in Express.
+
+Example:  
+```js
+const session = require('express-session');
+app.use(session({ secret: 'mysecret', resave: false, saveUninitialized: true }));
+```
+
+---
+
+### 75. **What is cookie-parser in Express?**  
+`cookie-parser` parses cookies from incoming requests.
+
+Example:  
+```js
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+```
+
+---
+
+### 76. **What is body-parser in Express?**  
+`body-parser` is middleware that parses incoming request bodies.
+
+Example:  
+```js
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+```
+Since Express 4.16+, `express.json()` and `express.urlencoded()` replace `body-parser`.
+
+---
+
+### 77. **What is the purpose of the res.json() function in Express?**  
+`res.json()` sends a JSON response to the client.
+
+Example:  
+```js
+app.get('/', (req, res) => {
+  res.json({ message: 'Hello World' });
+});
+```
+It sets the `Content-Type` to `application/json` automatically.
+
+---
+# HTML
