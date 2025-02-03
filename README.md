@@ -1481,3 +1481,463 @@ It sets the `Content-Type` to `application/json` automatically.
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```  
 ---
+# JavaScript
+---
+
+### **128 What is a closure in JavaScript?**  
+A **closure** is a function that remembers the variables from its outer scope even after the outer function has finished executing.  
+
+**Example:**
+```javascript
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = outer();
+counter(); // 1
+counter(); // 2
+```
+Here, `inner` forms a closure over `count`.
+
+---
+
+### **129 Difference Between `==` and `===` in JavaScript**  
+- `==` (loose equality) compares values after **type conversion**.  
+- `===` (strict equality) compares both **value and type**.
+
+**Example:**
+```javascript
+console.log(5 == "5");  // true  (type conversion)
+console.log(5 === "5"); // false (different types)
+```
+
+---
+
+### **130. What is the `this` keyword in JavaScript?**  
+- `this` refers to the **context** in which a function is called.  
+- It behaves differently in **strict mode**, arrow functions, and object methods.  
+
+**Example:**
+```javascript
+const obj = {
+  name: "Gowtham",
+  show: function() {
+    console.log(this.name);
+  }
+};
+obj.show(); // "Gowtham"
+```
+
+---
+
+### **131. What is a callback function in JavaScript?**  
+A **callback function** is a function passed as an argument to another function, which executes it later.  
+
+**Example:**
+```javascript
+function greet(name, callback) {
+  console.log("Hello " + name);
+  callback();
+}
+
+function done() {
+  console.log("Callback executed.");
+}
+
+greet("Gowtham", done);
+```
+
+---
+
+### **132 . Difference Between Synchronous and Asynchronous JavaScript**  
+- **Synchronous:** Code executes **line by line**.
+- **Asynchronous:** Code executes **non-blocking**, allowing other tasks to run.
+
+**Example:**
+```javascript
+console.log("Start");
+setTimeout(() => console.log("Async Task"), 1000);
+console.log("End");
+
+// Output: 
+// Start
+// End
+// Async Task (after 1 sec)
+```
+
+---
+
+### **133. Function Declaration vs Function Expression**  
+- **Function Declaration:** Named and hoisted.  
+- **Function Expression:** Assigned to a variable, **not hoisted**.  
+
+**Example:**
+```javascript
+// Declaration
+function greet() {
+  console.log("Hello");
+}
+
+// Expression
+const greetExp = function() {
+  console.log("Hello");
+};
+```
+
+---
+
+### **135. Difference Between `for` Loop and `while` Loop**  
+- **For loop:** Used when the number of iterations is known.  
+- **While loop:** Used when the condition is dynamic.  
+
+**Example:**
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+let j = 0;
+while (j < 5) {
+  console.log(j);
+  j++;
+}
+```
+
+---
+
+### **136. Difference Between `var`, `let`, and `const`**  
+| Keyword  | Scope         | Reassignment | Hoisted |
+|----------|-------------|--------------|---------|
+| `var`   | Function    | Yes          | Yes (undefined) |
+| `let`   | Block       | Yes          | No |
+| `const` | Block       | No           | No |
+
+**Example:**
+```javascript
+var x = 10; // Function-scoped
+let y = 20; // Block-scoped
+const z = 30; // Cannot be reassigned
+```
+
+---
+
+### **137. Difference Between Callback and Promise**  
+- **Callback:** Function passed as an argument.  
+- **Promise:** An object representing success/failure of an async task.
+
+**Example:**
+```javascript
+// Using Callback
+function fetchData(callback) {
+  setTimeout(() => callback("Data fetched"), 1000);
+}
+
+// Using Promise
+function fetchDataPromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Data fetched"), 1000);
+  });
+}
+
+fetchData(console.log);
+fetchDataPromise().then(console.log);
+```
+
+---
+
+### **140. Difference Between `Map` and `Set` in JavaScript**  
+| Feature  | Map                           | Set                        |
+|----------|------------------------------|----------------------------|
+| Stores   | Key-value pairs               | Unique values              |
+| Duplicates | No duplicate keys           | No duplicate values        |
+| Iteration | `forEach()`, `for...of`       | `forEach()`, `for...of`    |
+
+**Example:**
+```javascript
+let map = new Map();
+map.set("name", "Gowtham");
+
+let set = new Set();
+set.add("apple");
+```
+
+---
+
+### **141. Difference Between Class and Constructor Function**  
+- **Class:** Modern ES6 syntax, easier to use.  
+- **Constructor Function:** Older way, uses prototypes.
+
+**Example:**
+```javascript
+// Class
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+// Constructor Function
+function PersonFunc(name) {
+  this.name = name;
+}
+```
+
+---
+
+### **142. Difference Between `null` and `undefined` in JavaScript**  
+- **`null`**: Explicitly assigned to represent "no value".  
+- **`undefined`**: Default value for uninitialized variables.
+
+**Example:**
+```javascript
+let a; // undefined
+let b = null; // null
+```
+
+---
+# MongoDb
+---
+
+### **144. What is MongoDB?**  
+MongoDB is a **NoSQL database** that stores data in **JSON-like documents** instead of tables and rows. It is designed to handle large-scale, high-performance applications.
+
+**Key Features:**
+- Schema-less (flexible structure)
+- Uses collections and documents
+- Supports indexing and aggregation
+- Scalable and high-performance
+
+---
+
+### **145. Difference Between a Collection and a Document in MongoDB**  
+| Feature   | Collection             | Document                    |
+|-----------|------------------------|-----------------------------|
+| Definition | A group of documents   | A single record (JSON-like) |
+| Equivalent to | SQL Table          | SQL Row                     |
+| Format    | Stores multiple documents | JSON-like (BSON format)  |
+
+**Example:**
+```json
+// Document (inside a collection)
+{
+  "_id": "123",
+  "name": "Gowtham",
+  "age": 25
+}
+```
+A **collection** contains multiple such documents.
+
+---
+
+### **146. CRUD Operations in MongoDB**  
+CRUD stands for **Create, Read, Update, Delete**.
+
+```javascript
+// CREATE
+db.users.insertOne({ name: "Gowtham", age: 25 });
+
+// READ
+db.users.find({ name: "Gowtham" });
+
+// UPDATE
+db.users.updateOne({ name: "Gowtham" }, { $set: { age: 26 } });
+
+// DELETE
+db.users.deleteOne({ name: "Gowtham" });
+```
+
+---
+
+### **147. What is Indexing in MongoDB?**  
+Indexing improves query performance by **speeding up searches**.  
+MongoDB creates an index on the `_id` field by default.
+
+**Example:**
+```javascript
+db.users.createIndex({ name: 1 }); // Ascending order index on name
+```
+
+---
+
+### **148. What is Aggregation in MongoDB?**  
+Aggregation is used for **data processing and analysis**, like grouping, filtering, and transforming data.
+
+**Example:**
+```javascript
+db.orders.aggregate([
+  { $match: { status: "delivered" } }, // Filter orders
+  { $group: { _id: "$customerId", total: { $sum: "$amount" } } } // Group by customer
+]);
+```
+
+---
+# NodeJs
+---
+
+### **149. What is Node.js?**  
+Node.js is a **JavaScript runtime environment** that runs on the server-side using **Google’s V8 engine**.
+
+**Key Features:**
+- **Non-blocking, event-driven architecture**
+- Uses **single-threaded** event loop
+- Built-in **npm package manager**
+- Ideal for **API development, real-time apps**
+
+---
+
+### **150. Difference Between Node.js and Other Server-Side Frameworks**  
+| Feature         | Node.js | Other Frameworks (e.g., Django, Spring) |
+|----------------|--------|--------------------------------|
+| Language      | JavaScript | Python, Java, PHP, etc. |
+| Architecture  | Non-blocking, event-driven | Mostly multi-threaded |
+| Performance   | Fast for I/O-heavy apps | Can be slower for real-time apps |
+| Usage        | APIs, real-time apps | Web apps, enterprise solutions |
+
+---
+
+### **151. What is an Event Loop in Node.js?**  
+The event loop in Node.js allows **asynchronous operations** (I/O, timers, network requests) to be handled efficiently.
+
+**Example:**
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Async Task");
+}, 1000);
+
+console.log("End");
+
+// Output:
+// Start
+// End
+// Async Task (after 1 sec)
+```
+
+---
+
+### **152. What is Middleware in Node.js?**  
+Middleware functions are functions that execute **before** the request reaches the route handler.
+
+**Example (Express.js Middleware):**
+```javascript
+const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+  console.log("Middleware executed");
+  next(); // Pass to the next function
+});
+
+app.get('/', (req, res) => {
+  res.send("Hello, World!");
+});
+
+app.listen(3000);
+```
+
+---
+
+### **153. How to Handle Errors in Node.js?**  
+You can handle errors using **try-catch**, **error-first callbacks**, or **Express error handlers**.
+
+**Example (Try-Catch in Async Function):**
+```javascript
+async function fetchData() {
+  try {
+    let data = await fetch("https://api.example.com/data");
+    console.log(await data.json());
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+fetchData();
+```
+
+---
+
+### **154. Difference Between Synchronous and Asynchronous HTTP Requests**  
+| Type          | Execution | Example |
+|--------------|-----------|---------|
+| Synchronous  | Blocks the thread | `fetch(url).then(...)` |
+| Asynchronous | Non-blocking, uses callbacks/promises | `async/await` |
+
+**Example (Async HTTP Request in Node.js using Axios):**
+```javascript
+const axios = require('axios');
+
+async function fetchData() {
+  const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  console.log(response.data);
+}
+
+fetchData();
+```
+
+---
+
+### **155. Difference Between a Buffer and a Stream in Node.js**  
+| Feature   | Buffer        | Stream         |
+|-----------|--------------|---------------|
+| Definition | Temporary memory to hold data | Continuous flow of data |
+| Size      | Fixed | No limit |
+| Example   | File operations (fs module) | Video streaming |
+
+**Example:**
+```javascript
+// Buffer example
+const buffer = Buffer.from("Hello");
+console.log(buffer.toString()); // Hello
+
+// Stream example
+const fs = require("fs");
+const readStream = fs.createReadStream("file.txt");
+readStream.on("data", chunk => console.log(chunk));
+```
+
+---
+
+### **156. What is the Purpose of the Node.js Crypto Module?**  
+The `crypto` module provides **encryption and hashing** functionality.
+
+**Example (Hashing a password using SHA-256):**
+```javascript
+const crypto = require("crypto");
+const hash = crypto.createHash("sha256").update("password").digest("hex");
+console.log(hash);
+```
+
+---
+
+### **157. What is the Purpose of the Node.js FS Module?**  
+The `fs` module allows **file operations** like reading, writing, and deleting.
+
+**Example (Reading a File):**
+```javascript
+const fs = require('fs');
+
+fs.readFile('example.txt', 'utf8', (err, data) => {
+  if (err) console.error(err);
+  else console.log(data);
+});
+```
+
+---
+
+### **158. What is the Purpose of the Node.js Path Module?**  
+The `path` module helps handle **file paths** efficiently.
+
+**Example:**
+```javascript
+const path = require('path');
+
+console.log(path.basename('/usr/local/bin/file.txt')); // file.txt
+console.log(path.extname('file.txt')); // .txt
+console.log(path.join('/folder', 'subfolder', 'file.txt')); // /folder/subfolder/file.txt
+```
+
+---
