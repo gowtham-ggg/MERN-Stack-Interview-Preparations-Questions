@@ -1285,3 +1285,199 @@ It sets the `Content-Type` to `application/json` automatically.
 
 ---
 # HTML
+--- 
+### **78. Difference between HTML and XHTML**  
+- **HTML (HyperText Markup Language)** is the standard markup language used to create web pages.  
+- **XHTML (Extensible HyperText Markup Language)** is a stricter, XML-based version of HTML.  
+- XHTML requires all tags to be properly closed, attributes to be quoted, and elements to be properly nested.  
+
+### **79. New Features in HTML5**  
+- Semantic elements (`<header>`, `<footer>`, `<article>`, `<section>`)  
+- Multimedia support (`<audio>`, `<video>`)  
+- Form enhancements (`<input type="date">`, `<input type="email">`)  
+- Canvas API (`<canvas>` for drawing graphics)  
+- Local storage (`localStorage`, `sessionStorage`)  
+- Geolocation API  
+
+### **80. Role of DOCTYPE in HTML**  
+- Declares the HTML version used in the document.  
+- Ensures correct rendering in web browsers.  
+- Example: `<!DOCTYPE html>` (for HTML5).  
+
+### **81. Difference Between `<head>` and `<body>`**  
+- `<head>` contains metadata (title, links, scripts).  
+- `<body>` contains visible content (text, images, videos).  
+
+### **82. Types of Lists in HTML**  
+- Ordered List (`<ol>`) - Numbered list.  
+- Unordered List (`<ul>`) - Bulleted list.  
+- Definition List (`<dl>`, `<dt>`, `<dd>`) - Term and description.  
+
+### **83. Difference Between `<div>` and `<span>`**  
+- `<div>`: Block-level, used for layout.  
+- `<span>`: Inline, used for styling a part of text.  
+
+### **84. Difference Between ID and Class**  
+- **ID (`id="unique"`)**: Unique, used once per page.  
+- **Class (`class="common"`)**: Can be applied to multiple elements.  
+
+### **85. Purpose of `alt` Attribute in HTML**  
+- Provides alternative text for images.  
+- Improves accessibility and SEO.  
+
+### **86. What is Semantic HTML?**  
+- Using meaningful tags (`<header>`, `<nav>`, `<article>`) instead of `<div>`.  
+- Improves readability, SEO, and accessibility.  
+
+### **87. Difference Between `<span>` and `<div>`**  
+- `<span>`: Inline element, used for small text styling.  
+- `<div>`: Block-level element, used for larger layout sections.  
+
+### **88. Purpose of `title` Attribute**  
+- Provides tooltip text when hovered over an element.  
+
+### **89. Difference Between `<section>` and `<div>`**  
+- `<section>`: Represents a meaningful section of content.  
+- `<div>`: Generic container without semantic meaning.  
+
+### **90. Purpose of `target` Attribute**  
+- Specifies how a link should open (e.g., `_blank` for new tab).  
+
+### **91. Purpose of `<meta>` Tag**  
+- Provides metadata about a web page (charset, description, viewport).  
+
+### **92. Difference Between `<ol>` and `<ul>`**  
+- `<ol>`: Ordered list with numbers.  
+- `<ul>`: Unordered list with bullets.  
+
+### **93. Purpose of `placeholder` Attribute**  
+- Displays hint text inside form fields before user input.  
+
+### **94. Difference Between `<b>` and `<strong>`**  
+- `<b>`: Bold text (visual only).  
+- `<strong>`: Bold text with importance (SEO, accessibility).  
+
+### **95. Difference Between `<form>` and `<fieldset>`**  
+- `<form>`: Container for input fields.  
+- `<fieldset>`: Groups related form elements together.  
+
+### **96. Purpose of `<figure>` and `<figcaption>`**  
+- `<figure>`: Contains media (image, video).  
+- `<figcaption>`: Caption for the media content.  
+
+### **97. Purpose of `href` Attribute**  
+- Specifies the URL for a link (`<a href="url">`).  
+
+### **98. Difference Between `<article>` and `<section>`**  
+- `<article>`: Independent, self-contained content.  
+- `<section>`: Thematic grouping of content.  
+
+### **99. Difference Between `<label>` and `<legend>`**  
+- `<label>`: Describes an input field.  
+- `<legend>`: Describes a `<fieldset>`.  
+
+### **100. Purpose of `<nav>` Element**  
+- Represents navigation links for a website.  
+
+### **101. Difference Between `<cite>` and `<em>`**  
+- `<cite>`: Used for citing works (books, articles).  
+- `<em>`: Emphasizes text (italic).  
+
+### **102. Purpose of `<audio>` and `<video>`**  
+- Embed audio and video content in web pages.  
+
+### **103. Difference Between `<time>` and `<date>`**  
+- `<time>`: Represents time/date information.  
+- `<date>`: Not an HTML tag.  
+
+### **104. Purpose of `<source>` Element**  
+- Specifies multiple media sources for `<audio>` and `<video>`.  
+
+### **105. Purpose of `<header>` and `<footer>`**  
+- `<header>`: Top section of a page or article.  
+- `<footer>`: Bottom section with copyright, links, etc.  
+
+### **106. Purpose of `<canvas>`**  
+- Used for drawing graphics, animations via JavaScript.  
+
+### **107. Difference Between `<ruby>` and `<rt>`**  
+- `<ruby>`: Represents annotations for East Asian text.  
+- `<rt>`: Provides pronunciation for `<ruby>`.  
+
+### **108. Purpose of `<details>` and `<summary>`**  
+- `<details>`: Collapsible content.  
+- `<summary>`: Summary/title for the collapsible section.  
+
+### **109. Purpose of `<iframe>`**  
+- Embeds another webpage inside the current page.  
+
+### **110. Difference Between `<meter>` and `<progress>`**  
+- `<meter>`: Represents a measurement within a range.  
+- `<progress>`: Displays the progress of a task.  
+
+### **111. Purpose of `<output>` Element**  
+- Displays results of calculations or scripts.  
+
+### **112. Difference Between `<datalist>` and `<select>`**  
+- `<datalist>`: Provides suggestions for input fields.  
+- `<select>`: Dropdown list with predefined options.  
+
+### **113. Purpose of `<picture>`**  
+- Displays different images based on screen size/resolution.  
+
+### **114. Difference Between `<dialog>` and `<details>`**  
+- `<dialog>`: Displays a pop-up/modal.  
+- `<details>`: Expands and collapses content.  
+
+### **115. Purpose of `<object>` and `<embed>`**  
+- `<object>`: Embeds multimedia (PDF, Flash).  
+- `<embed>`: Inserts external content (videos, plugins).  
+
+### **116. Difference Between `<nav>` and `<menu>`**  
+- `<nav>`: Navigation links.  
+- `<menu>`: List of commands (mostly obsolete).  
+
+### **117. Purpose of `<track>`**  
+- Provides subtitles, captions for `<video>`.  
+
+### **118. Difference Between `<thead>` and `<tbody>`**  
+- `<thead>`: Groups header row of a table.  
+- `<tbody>`: Groups body rows of a table.  
+
+### **119. Purpose of `<!DOCTYPE>`**  
+- Defines the document type for correct rendering.  
+
+### **120. Ways to Include CSS in HTML**  
+- Inline (`style="color:red;"`).  
+- Internal (`<style>` in `<head>`).  
+- External (`<link rel="stylesheet">`).  
+
+### **121. Semantic HTML Tags**  
+- Meaningful tags (`<header>`, `<article>`, `<footer>`).  
+
+### **122. Difference Between `id` and `class`**  
+- `id`: Unique, used once.  
+- `class`: Can be reused for multiple elements.  
+
+### **123. Difference Between Inline and Block Elements**  
+- **Inline:** Does not start a new line (`<span>`, `<a>`).  
+- **Block:** Starts a new line (`<div>`, `<p>`).  
+
+### **124. Difference Between Relative and Absolute URL**  
+- **Relative:** Refers to a location within the site.  
+- **Absolute:** Full URL (with domain).  
+
+### **125. How to Add an Image in HTML**  
+```html
+<img src="image.jpg" alt="Description">
+```  
+
+### **126. Purpose of `alt` Attribute in `<img>`**  
+- Provides alternative text for accessibility and SEO.  
+
+### **127. Purpose of `viewport` Meta Tag**  
+- Controls responsive behavior on mobile devices.  
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```  
+---
