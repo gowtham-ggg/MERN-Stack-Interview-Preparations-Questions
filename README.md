@@ -1941,3 +1941,606 @@ console.log(path.join('/folder', 'subfolder', 'file.txt')); // /folder/subfolder
 ```
 
 ---
+# ReactJs
+---
+
+### **159. What is React?**  
+React is a **JavaScript library** for building user interfaces, primarily for single-page applications (SPAs). It enables developers to create reusable UI components and manage the UI efficiently.
+
+---
+
+### **160. What is JSX in React?**  
+JSX (JavaScript XML) is a syntax extension for JavaScript that allows you to write HTML-like code inside JavaScript. React uses JSX to define component structures.
+
+**Example:**
+```jsx
+const element = <h1>Hello, React!</h1>;
+```
+
+---
+
+### **161. What is the Virtual DOM in React?**  
+The Virtual DOM is an **in-memory representation** of the real DOM. React updates the Virtual DOM first and then applies only the necessary changes to the real DOM, improving performance.
+
+---
+
+### **162. What is the difference between props and state in React?**  
+| Feature   | Props                           | State                          |
+|-----------|---------------------------------|--------------------------------|
+| Definition| Data passed to components       | Data managed within a component|
+| Mutability| Immutable                       | Mutable (using `setState`/`useState`) |
+| Access    | `this.props` or `props`        | `this.state` or `useState`    |
+
+---
+
+### **163. What is a controlled component in React?**  
+A controlled component is a component where the form elements are controlled by React state.
+
+**Example:**
+```jsx
+function ControlledInput() {
+  const [value, setValue] = useState('');
+  return <input value={value} onChange={(e) => setValue(e.target.value)} />;
+}
+```
+
+---
+
+### **164. What is Redux, and how is it used in a MERN stack application?**  
+Redux is a **state management library** used to manage application-wide state in React. In a MERN stack, it helps manage UI state and backend data, making state changes predictable.
+
+---
+
+### **165. How can you pass data between components in React?**  
+- **Props:** Pass data from parent to child.  
+- **Context API:** Share data across multiple components.  
+- **Redux:** Manage global state.  
+- **Callback functions:** Pass a function as a prop to allow child-to-parent communication.  
+
+---
+
+### **166. What is server-side rendering, and how can it be used in a MERN stack application?**  
+Server-side rendering (SSR) renders React components on the server and sends the HTML to the client, improving performance and SEO. Next.js is commonly used for SSR in MERN applications.
+
+---
+
+### **167. What is the difference between a class and a function component in React?**  
+| Feature   | Class Component              | Function Component             |
+|-----------|------------------------------|--------------------------------|
+| Syntax    | ES6 class-based              | Functional syntax with hooks   |
+| State     | Uses `this.state`             | Uses `useState` hook           |
+| Lifecycle | Uses lifecycle methods        | Uses `useEffect` hook          |
+
+---
+
+### **168. What is the difference between a controlled and uncontrolled component in React?**  
+- **Controlled Component:** React controls the component state (`useState`).  
+- **Uncontrolled Component:** Uses `ref` to access DOM values directly.  
+
+**Example (Uncontrolled):**
+```jsx
+const inputRef = useRef();
+<input ref={inputRef} />;
+```
+
+---
+
+### **169. What are the advantages of using React?**  
+- Component-based architecture  
+- Virtual DOM for faster updates  
+- Unidirectional data flow  
+- Strong ecosystem and community support  
+
+---
+
+### **170. What is the difference between React and React Native?**  
+React is used for **web development**, while React Native is used for **mobile app development**.
+
+---
+
+### **171. What is the role of state in React?**  
+State manages a component's **dynamic data**, ensuring UI updates when data changes.
+
+---
+
+### **172. What is the significance of keys in React?**  
+Keys help React identify which items changed in lists, improving performance.
+
+**Example:**
+```jsx
+list.map(item => <li key={item.id}>{item.name}</li>);
+```
+
+---
+
+### **173. What is the use of react-router-dom library?**  
+It enables **client-side routing** in React applications.
+
+**Example:**
+```jsx
+<Route path="/about" element={<About />} />
+```
+
+---
+
+### **174. How do you create a React component?**  
+Two ways:
+1. **Function Component**
+   ```jsx
+   function Hello() {
+     return <h1>Hello, World!</h1>;
+   }
+   ```
+2. **Class Component**
+   ```jsx
+   class Hello extends React.Component {
+     render() {
+       return <h1>Hello, World!</h1>;
+     }
+   }
+   ```
+
+---
+
+### **175. What is the lifecycle of a React component?**  
+- **Mounting:** `constructor()`, `componentDidMount()`  
+- **Updating:** `componentDidUpdate()`, `shouldComponentUpdate()`  
+- **Unmounting:** `componentWillUnmount()`  
+
+For function components, `useEffect()` handles lifecycle events.
+
+---
+
+### **176. What is the use of React DevTools?**  
+It helps debug React applications by inspecting components, state, and props.
+
+---
+
+### **177. What is a higher-order component (HOC) in React?**  
+A HOC is a function that takes a component and returns an enhanced component.
+
+**Example:**
+```jsx
+const withLogging = (WrappedComponent) => {
+  return (props) => {
+    console.log('Logging...');
+    return <WrappedComponent {...props} />;
+  };
+};
+```
+
+---
+
+### **178. What are the different ways to style a React component?**  
+- **CSS files** (`.css`)
+- **Inline styles** (`style={{ color: 'red' }}`)
+- **Styled-components** (CSS-in-JS)
+- **Tailwind CSS / Bootstrap**
+
+---
+
+### **179. What are hooks in React?**  
+Hooks allow function components to use state and lifecycle features.
+
+**Example:**
+```jsx
+const [count, setCount] = useState(0);
+```
+
+---
+
+### **180. What are the different types of hooks in React?**  
+- **State Management Hooks:** `useState`, `useReducer`  
+- **Side Effects Hooks:** `useEffect`  
+- **Context Hook:** `useContext`  
+- **Ref Hooks:** `useRef`  
+- **Performance Hooks:** `useMemo`, `useCallback`
+
+---
+
+### **181. What is the use of useEffect() hook in React?**  
+`useEffect()` handles side effects like API calls, subscriptions, and DOM updates.
+
+**Example:**
+```jsx
+useEffect(() => {
+  console.log('Component mounted');
+}, []);
+```
+
+---
+
+### **182. What is the use of useContext() hook in React?**  
+It provides global state management without Redux.
+
+**Example:**
+```jsx
+const theme = useContext(ThemeContext);
+```
+
+---
+
+### **183. What is the use of memo() function in React?**  
+`memo()` optimizes functional components by preventing unnecessary re-renders.
+
+**Example:**
+```jsx
+const MemoizedComponent = React.memo(MyComponent);
+```
+
+---
+
+### **184. What is server-side rendering (SSR) in React?**  
+SSR renders React components on the server, improving performance and SEO.
+
+---
+
+### **185. What are portals in React?**  
+Portals allow rendering components outside the root DOM node.
+
+**Example:**
+```jsx
+ReactDOM.createPortal(<Child />, document.getElementById('modal-root'));
+```
+
+---
+
+### **186. What are the performance optimization techniques in React?**  
+- Use **React.memo()**  
+- Use **useCallback()** and **useMemo()**  
+- Implement **lazy loading**  
+- Avoid **unnecessary re-renders**  
+
+---
+
+### **190. What are hooks in React?**  
+Hooks are **functions** that let function components use React features like state and lifecycle methods without using class components.  
+
+**Example:**  
+```jsx
+const [count, setCount] = useState(0);
+```
+
+---
+
+### **191. What are the different types of hooks in React?**  
+- **State Hooks:** `useState`, `useReducer`  
+- **Effect Hooks:** `useEffect`  
+- **Context Hooks:** `useContext`  
+- **Ref Hooks:** `useRef`  
+- **Performance Hooks:** `useMemo`, `useCallback`  
+
+---
+
+### **192. What is the use of `useEffect()` hook in React?**  
+It is used to handle **side effects** like API calls, event listeners, or subscriptions.
+
+**Example:**
+```jsx
+useEffect(() => {
+  console.log("Component mounted");
+}, []);
+```
+
+---
+
+### **193. What is the use of `useState()` hook in React?**  
+It **manages state** in function components.  
+
+**Example:**
+```jsx
+const [count, setCount] = useState(0);
+```
+
+---
+
+### **194. What is the use of `useContext()` hook in React?**  
+It allows components to **consume global data** without passing props manually.  
+
+**Example:**
+```jsx
+const theme = useContext(ThemeContext);
+```
+
+---
+
+### **195. What is the use of `useReducer()` hook in React?**  
+It manages **complex state logic** like Redux but inside a component.
+
+**Example:**
+```jsx
+const reducer = (state, action) => {
+  if (action.type === "increment") return state + 1;
+  return state;
+};
+
+const [count, dispatch] = useReducer(reducer, 0);
+```
+
+---
+
+### **196. What are the differences between class and functional components in React?**  
+| Feature   | Class Component              | Function Component             |
+|-----------|------------------------------|--------------------------------|
+| Syntax    | ES6 class-based              | Function-based (ES6)           |
+| State     | Uses `this.state`             | Uses `useState` hook           |
+| Lifecycle | Uses lifecycle methods        | Uses `useEffect` hook          |
+
+---
+
+### **197. What is the use of `memo()` function in React?**  
+`React.memo()` prevents unnecessary **re-renders** of functional components.
+
+**Example:**
+```jsx
+const MemoizedComponent = React.memo(MyComponent);
+```
+
+---
+
+### **198. What is server-side rendering (SSR) in React?**  
+SSR renders React components **on the server** and sends the HTML to the client, improving **SEO and performance**.
+
+---
+
+### **199. What are portals in React?**  
+Portals allow **rendering components outside the root DOM node**, useful for modals.
+
+**Example:**
+```jsx
+ReactDOM.createPortal(<Modal />, document.getElementById("modal-root"));
+```
+
+---
+
+### **200. What are the performance optimization techniques in React?**  
+- Use **React.memo()**  
+- Use **useCallback()** and **useMemo()**  
+- Implement **lazy loading**  
+- Avoid **unnecessary re-renders**  
+
+---
+
+### **201. What is the difference between server-side rendering (SSR) and client-side rendering (CSR) in React?**  
+| Feature | Server-Side Rendering (SSR) | Client-Side Rendering (CSR) |
+|---------|-----------------------------|-----------------------------|
+| Where rendering happens | Server | Browser |
+| Performance | Faster initial load | Slower initial load |
+| SEO | Better | Weaker |
+| Example | Next.js | Create React App (CRA) |
+
+---
+
+### **202. What is the use of React Context?**  
+Context provides **global state management** without needing **prop drilling**.
+
+**Example:**
+```jsx
+const ThemeContext = createContext();
+```
+
+---
+
+### **203. What is the use of Redux middleware?**  
+Middleware in Redux is used to **handle asynchronous logic**, logging, or API requests (e.g., `redux-thunk`).
+
+---
+
+### **204. What is the difference between Redux and MobX?**  
+| Feature  | Redux                     | MobX                   |
+|----------|---------------------------|------------------------|
+| Approach | Immutable state            | Mutable state         |
+| Learning Curve | Steep | Easier |
+| Boilerplate | More code needed | Less code |
+
+---
+
+### **205. What are the different types of testing in React?**  
+- **Unit Testing** (`Jest`, `React Testing Library`)  
+- **Integration Testing**  
+- **End-to-End Testing** (`Cypress`)  
+
+---
+
+### **206. What is the use of React Native Bridge?**  
+The React Native Bridge allows **communication** between JavaScript and native code (iOS/Android).
+
+---
+
+### **207. What is the use of the React Native CLI?**  
+It helps **create and manage** React Native projects with custom configurations.
+
+---
+
+### **208. What is the use of Expo in React Native?**  
+Expo simplifies **React Native development** by providing pre-built tools for faster development.
+
+---
+
+### **209. What are the different types of navigation in React Native?**  
+- **Stack Navigation**  
+- **Tab Navigation**  
+- **Drawer Navigation**  
+- **Bottom Navigation**  
+
+---
+
+### **210. What are some features of React?**  
+- **Component-based architecture**  
+- **Virtual DOM**  
+- **Unidirectional data flow**  
+- **Declarative UI**  
+- **Hooks API**  
+
+---
+
+### **211. What is a virtual DOM in React?**  
+The virtual DOM is an in-memory **representation** of the actual DOM, allowing React to **update only necessary parts of the UI** efficiently.
+
+---
+
+### **212. What is the difference between state and props in React?**  
+- **State:** Mutable, used for internal data in a component.  
+- **Props:** Immutable, used to pass data between components.
+
+---
+
+### **213. What is a React component?**  
+A React component is a **reusable UI element** that returns a piece of the interface and can either be **stateful** or **stateless**.
+
+---
+
+### **214. What is a higher-order component in React?**  
+A higher-order component (HOC) is a **function** that takes a component and returns a new component with additional functionality.
+
+---
+
+### **215. What is the purpose of the `render()` method in a React component?**  
+The `render()` method returns the **JSX** that represents the component's UI.
+
+---
+
+### **216. What is the difference between a controlled and uncontrolled component in React?**  
+- **Controlled:** Managed by React state.  
+- **Uncontrolled:** Managed by the DOM.
+
+---
+
+### **217. How can you pass data from a parent component to a child component in React?**  
+By using **props** to pass data from the parent to the child.
+
+---
+
+### **218. What are some lifecycle methods of a React component?**  
+- **componentDidMount()**  
+- **componentDidUpdate()**  
+- **componentWillUnmount()**
+
+---
+
+### **219. What is the significance of the `key` prop in a React component?**  
+`key` helps React **identify and manage components** efficiently during re-rendering.
+
+---
+
+### **220. What is React Router?**  
+React Router is a library used for **navigation** and handling routing in single-page React applications.
+
+---
+
+### **221. What is Redux?**  
+Redux is a state management library used to manage **global state** in JavaScript applications.
+
+---
+
+### **222. What is the purpose of the `connect()` function in Redux?**  
+`connect()` links a component to the Redux store, providing it access to **state** and **dispatch** actions.
+
+---
+
+### **223. What is a Redux store?**  
+The Redux store holds the **entire application state** and provides methods to **dispatch actions** and subscribe to changes.
+
+---
+
+### **224. What is an action creator in Redux?**  
+An action creator is a function that **returns an action** to be dispatched to the Redux store.
+
+---
+
+### **225. What is a reducer in Redux?**  
+A reducer is a pure function that takes the **current state** and an **action** and returns the new state.
+
+---
+
+### **226. What is the difference between a presentational and container component in Redux?**  
+- **Presentational component:** Focuses on rendering the UI.  
+- **Container component:** Connects the UI to the Redux store and manages state.
+
+---
+
+### **227. How does Redux middleware work?**  
+Redux middleware is a way to enhance the store’s abilities, often used for handling **asynchronous actions** or logging.
+
+---
+
+### **228. What is the purpose of Redux Thunk?**  
+Redux Thunk is middleware that allows **action creators to return functions** (instead of just actions) for handling asynchronous logic.
+
+---
+
+### **229. What is React Native?**  
+React Native is a framework for building **native mobile applications** using React.
+
+---
+
+### **230. What are some differences between React and React Native?**  
+- **React:** Used for building **web applications**.  
+- **React Native:** Used for building **mobile applications** (iOS and Android).
+
+---
+
+### **231. What is the purpose of React hooks?**  
+React hooks allow you to **use state and lifecycle features** in functional components.
+
+---
+
+### **232. What are some commonly used React hooks?**  
+- **useState()**  
+- **useEffect()**  
+- **useContext()**  
+- **useReducer()**  
+
+---
+
+### **233. What is the useContext hook in React?**  
+`useContext()` is a hook used to access the **value of a context** within a component.
+
+---
+
+### **234. What is the useReducer hook in React?**  
+`useReducer()` is a hook used for managing **complex state logic**, similar to Redux.
+
+---
+
+### **235. What is server-side rendering in React?**  
+Server-side rendering (SSR) is when the server generates the **HTML content** for a React component before sending it to the client.
+
+---
+
+### **236. What is the difference between CSR and SSR?**  
+- **CSR (Client-Side Rendering):** The browser renders the content using JavaScript.  
+- **SSR (Server-Side Rendering):** The server generates the HTML content before sending it to the browser.
+
+---
+
+### **237. How can you optimize the performance of a React app?**  
+- Use **React.memo**  
+- Use **lazy loading**  
+- **Code splitting**  
+- Optimize **re-renders**  
+- Use **PureComponent** or **shouldComponentUpdate()**
+
+---
+
+### **238. What is the purpose of React Fiber?**  
+React Fiber is a **reconciliation algorithm** that improves React’s rendering and makes the UI more **responsive**.
+
+---
+
+### **239. What is React Suspense?**  
+React Suspense is a feature that allows components to **wait for data** or other resources before rendering.
+
+---
+
+### **240. What is a React portal?**  
+A React portal allows rendering a child component into a **different part of the DOM** outside its parent hierarchy.
+
+---
+
+### **241. What are some alternatives to Redux?**  
+- **MobX**  
+- **Recoil**  
+- **Context API**
+
+---
