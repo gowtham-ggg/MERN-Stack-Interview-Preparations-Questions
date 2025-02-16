@@ -6,6 +6,11 @@ const Card = () => {
     const [editId, setEditId] = useState(null);
     const [editName, setEditName] = useState('');
     const [editMobile, setEditMobile] = useState('');
+    const [deleteId, setDeleteID] = useState(null)
+    
+    const handleDelete =(item)=>{
+        
+    }
 
     const handleEdit = (item) => {
         setEditId(item._id);
