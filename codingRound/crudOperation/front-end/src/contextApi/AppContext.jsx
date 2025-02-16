@@ -36,11 +36,31 @@ export const AppProvider = ({ children }) => {
       }
   
       console.log("Updated successfully");
-      getData(); // Refresh the data after updating
+      getData(); 
     } catch (error) {
       console.error("Error updating user:", error);
     }
   };
+
+  const deleteData = async (id) =>{
+    try {
+      const {data} = await axios.delete(`${url}/${id}`)
+
+      if(!data){
+        console.log("Failed to Delete");
+        
+      }else{
+        console.log("Successfully dleted");
+        
+      }
+
+
+    } catch (error) {
+      console.log("error : " , error.message);
+      
+    }
+  }
+  
   
 
 useEffect(()=>{
@@ -48,8 +68,9 @@ useEffect(()=>{
 },[add])
 
   return (
-    <AppContext.Provider value={{ add, userData,getData,updateData }}>
-      {children} {/* Fixed "Children" prop */}
+    <AppContext.Provider value={{ add, userData,getData,updateData, deleteData }}>
+      {children}
+
     </AppContext.Provider>
   );
 };
